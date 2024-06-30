@@ -1,20 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using PokedexApp.Models;
+using PokedexApp.Services;
 
 namespace PokedexApp.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly PokeApiService _pokeApiService;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public Pokemon Pokemon { get; set; }
+        public IndexModel(PokeApiService pokeApiService)
         {
-            _logger = logger;
+            _pokeApiService = pokeApiService;
         }
 
-        public void OnGet()
+        public async Task OnGetAsync(string nome)
         {
-
+            if (!string.IsNullOrEmpty(nome))
+            {
+                Pokemon = await _pokeApiService.GetPokemonAsync(nome);
+            }
         }
     }
 }
