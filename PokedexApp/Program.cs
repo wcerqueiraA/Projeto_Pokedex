@@ -1,3 +1,4 @@
+using PokedexApp.Models;
 using PokedexApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);

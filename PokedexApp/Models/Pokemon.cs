@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using static System.Net.WebRequestMethods;
 
 namespace PokedexApp.Models
 {
@@ -10,15 +11,19 @@ namespace PokedexApp.Models
         [JsonPropertyName("name")]
         public string Nome { get; set; }
 
+        [JsonPropertyName("types")]
+        public List<Tipo> Tipos { get; set; }
+
         [JsonPropertyName("height")]
         public double Altura { get; set; }
 
         [JsonPropertyName("weight")]
-        public double Peso {  get; set; }
-
-        [JsonPropertyName("front_default")]
-        public string Sprite { get; set; }
-
+        public double Peso { get; set; }
+        [JsonPropertyName("sprites")]
+        public Sprite Sprites { get; set; }
 
     }
+
+   
+
 }

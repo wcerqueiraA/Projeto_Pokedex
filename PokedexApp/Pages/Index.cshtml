@@ -1,7 +1,6 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
 }
 
 <!DOCTYPE html>
@@ -9,24 +8,47 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PokedexApp</title>
+    <title>PokedexApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-        </main>
+    <div class="box">
+        <h1 id="heading">Pokedex</h1>
+        <form method="get">
+            <input type="text" name="nome" placeholder="Informe o pokemon" />
+            <button type="submit">Pesquisar</button>
+        </form>
     </div>
 
+    @if(Model.Pokemon != null){
+        <div class="box">
+            <div class="pokemon @Model.Pokemon.Tipos[0].type.name">  
+                <div>
+                    <span>
+                        <h1 class="numero">#@Model.Pokemon.Id</h1>
+                        <h1 class="nome">@Model.Pokemon.Nome.ToUpper()</h1>
+                    </span>
+                    <div class="img-container">
+                        <img src="@Model.Pokemon.Sprites.Front_default" alt="@Model.Pokemon.Nome"/>
+                    </div>
+                    <span class="tipo">Tipo: 
+                        @foreach(var tipo in Model.Pokemon.Tipos)
+                        {
+                            <span>@tipo.type.name</span>
+                        }
+                    </span>
+                    <h5>Altura: @(Model.Pokemon.Altura/10) m</h5>
+                    <h5>Peso: @(Model.Pokemon.Peso / 10) kg</h5>
+                </div>
+            </div>
+        </div>
+    }
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - PokedexApp -
+            &copy; 2024 - Wellington Cerqueira Araujo
         </div>
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
