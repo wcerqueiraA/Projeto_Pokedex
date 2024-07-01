@@ -10,13 +10,12 @@ O objetivo é permitir que os usuários pesquisem por pokémons e vejam detalhes
     - Visual Studio 2022 para desenvolvimento
 
 ## Instalação
-
-- Clone o repositório:
+1. Clone o repositório:
 
 bash
 git clone https://github.com/seu-usuario/PokedexApp.git
 
-- Abra o projeto no Visual Studio 2022 e compile a aplicação.
+2. Abra o projeto no Visual Studio 2022 e compile a aplicação.
   
 ## Estrutura do Projeto
 
