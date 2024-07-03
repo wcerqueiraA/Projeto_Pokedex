@@ -7,6 +7,7 @@ O objetivo é permitir que os usuários pesquisem por pokémons e vejam detalhes
 
     - Linguagem: C#
     - .NET Core 7
+    - ASP.NET
     - HTML5
     - CSS3
     - Bootstrap
